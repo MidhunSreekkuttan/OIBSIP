@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Personal portfolio of Midhun M, a full-stack developer building modern, responsive web applications.">
+
+  <meta name="theme-color" content="#0b0d14">
+
+  <title>Midhun M — Full Stack Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Midhun M home">
+        <span class="brand-mark">M</span>
+        <span>Midhun<span class="accent">.</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="nav-links">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+
+        <a href="#contact" class="nav-contact">
+          Let's talk
+          <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero section" id="home">
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="availability">
+            <span class="status-dot"></span>
+            Open to opportunities
+          </div>
+
+          <p class="eyebrow">HELLO, I'M MIDHUN M</p>
+
+          <h1>
+            I build digital<br>
+            experiences that
+            <span class="gradient-text">matter.</span>
+          </h1>
+
+          <p class="hero-description">
+            I'm a full-stack developer who enjoys building modern,
+            responsive web applications with React, Node.js, and
+            JavaScript. I focus on clean code and thoughtful user experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">
+              Explore my work
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+
+            <a class="button button-ghost" href="#contact">
+              <i data-lucide="mail" aria-hidden="true"></i>
+              Get in touch
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <span>FIND ME ON</span>
+
+            <a href="https://github.com/MidhunSreekkuttan" target="_blank" rel="noopener noreferrer"
+              aria-label="GitHub profile">
+              <i data-lucide="github" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/midhun-sreekkuttan" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn profile">
+              <i data-lucide="linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile illustration -->
+        <div class="hero-visual" aria-label="Developer profile illustration">
+          <div class="orbit orbit-large"></div>
+          <div class="orbit orbit-small"></div>
+
+          <div class="profile-card">
+            <div class="profile-top">
+              <span></span>
+              <span></span>
+              <span></span>
+              <small>PROFILE.EXE</small>
+            </div>
+
+            <div class="avatar">
+              <div class="avatar-halo"></div>
+              <div class="avatar-head"></div>
+              <div class="avatar-neck"></div>
+              <div class="avatar-body"></div>
+            </div>
+
+            <div class="profile-caption">
+              <span class="profile-name">Midhun M</span>
+              <span class="profile-role">Full Stack Developer</span>
+            </div>
+
+            <div class="profile-tags">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MERN</span>
+            </div>
+          </div>
+
+          <div class="floating-chip chip-code">
+            <span class="chip-icon">
+              <i data-lucide="code-2" aria-hidden="true"></i>
+            </span>
+
+            <div>
+              <strong>Clean code</strong>
+              <small>Built with care</small>
+            </div>
+          </div>
+
+          <div class="floating-chip chip-design">
+            <span class="chip-icon">
+              <i data-lucide="layers" aria-hidden="true"></i>
+            </span>
+
+            <div>
+              <strong>Full stack</strong>
+              <small>From UI to APIs</small>
+            </div>
+          </div>
+
+          <div class="decorative-star star-one">
+            <i data-lucide="sparkles" aria-hidden="true"></i>
+          </div>
+
+          <div class="decorative-star star-two">
+            <i data-lucide="star" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about">
+        <span></span>
+        SCROLL TO EXPLORE
+      </a>
+    </section>
+
+    <!-- About -->
+    <section class="section about-section" id="about">
+      <div class="container two-column">
+        <div class="section-heading">
+          <p class="eyebrow">A LITTLE ABOUT ME</p>
+
+          <h2>
+            Curious mind.<br>
+            <span class="muted-heading">Builder's mindset.</span>
+          </h2>
+
+          <div class="heading-line"></div>
+        </div>
+
+        <div class="about-copy">
+          <p class="lead">
+            I turn ideas into useful, thoughtful digital experiences.
+          </p>
+
+          <p>
+            I'm a developer interested in building complete web applications,
+            from responsive interfaces to backend APIs. I enjoy solving
+            practical problems, learning new technologies, and writing
+            maintainable code.
+          </p>
+
+          <p>
+            I'm continually improving my skills in React, JavaScript,
+            Node.js, and database-driven application development by building
+            projects and exploring better ways to develop software.
+          </p>
+
+          <a class="text-link" href="#contact">
+            Let's work together
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">WHAT I WORK WITH</p>
+          <h2>My toolkit<span class="accent">.</span></h2>
+          <p>
+            Technologies and tools I use to build modern web applications.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <span class="skill-icon orange">
+              <i data-lucide="file-code" aria-hidden="true"></i>
+            </span>
+            <h3>HTML5</h3>
+            <p>Semantic structure</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-icon blue">
+              <i data-lucide="palette" aria-hidden="true"></i>
+            </span>
+            <h3>CSS3</h3>
+            <p>Responsive styling</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-icon yellow">
+              <i data-lucide="code-2" aria-hidden="true"></i>
+            </span>
+            <h3>JavaScript</h3>
+            <p>Interactive experiences</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-icon cyan">
+              <i data-lucide="blocks" aria-hidden="true"></i>
+            </span>
+            <h3>React</h3>
+            <p>Component-driven UI</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-icon green">
+              <i data-lucide="git-branch" aria-hidden="true"></i>
+            </span>
+            <h3>Git & GitHub</h3>
+            <p>Version control</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-icon purple">
+              <i data-lucide="panels-top-left" aria-hidden="true"></i>
+            </span>
+            <h3>UI / UX</h3>
+            <p>Design fundamentals</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-icon green">
+              <i data-lucide="server" aria-hidden="true"></i>
+            </span>
+            <h3>Node.js</h3>
+            <p>Server-side JavaScript</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-icon yellow">
+              <i data-lucide="database" aria-hidden="true"></i>
+            </span>
+            <h3>Databases</h3>
+            <p>Application data</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-icon blue">
+              <i data-lucide="terminal" aria-hidden="true"></i>
+            </span>
+            <h3>REST APIs</h3>
+            <p>Backend integration</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="projects-heading">
+          <div class="section-intro">
+            <p class="eyebrow">SELECTED WORK</p>
+            <h2>Projects I've built<span class="accent">.</span></h2>
+            <p>
+              A selection of projects demonstrating my approach to
+              development and problem-solving.
+            </p>
+          </div>
+
+          <a class="text-link desktop-link" href="https://github.com/MidhunSreekkuttan" target="_blank"
+            rel="noopener noreferrer">
+            View GitHub
+            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-preview dashboard-preview">
+              <div class="mock-window">
+                <div class="mock-sidebar">
+                  <b></b>
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+
+                <div class="mock-content">
+                  <div class="mock-title"></div>
+
+                  <div class="mock-stats">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+
+                  <div class="mock-chart">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
+              <span class="preview-label">01 / DASHBOARD UI</span>
+            </div>
+
+            <div class="project-content">
+              <div class="project-meta">
+                <span>FULL STACK DEVELOPMENT</span>
+                <span>2026</span>
+              </div>
+
+              <h3>Flowboard — Task Manager</h3>
+
+              <p>
+                A project management application concept for organizing
+                workspaces, creating projects, assigning tasks, and
+                tracking team progress.
+              </p>
+
+              <div class="tag-list">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+              </div>
+
+              <a class="project-link" href="https://github.com/MidhunSreekkuttan" target="_blank"
+                rel="noopener noreferrer">
+                View on GitHub
+                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-preview shop-preview">
+              <div class="shop-window">
+                <div class="shop-nav">
+                  <b>FORMA</b>
+                  <span>SHOP&nbsp;&nbsp; ABOUT&nbsp;&nbsp; BAG (0)</span>
+                </div>
+
+                <div class="shop-hero">
+                  <div>
+                    <small>OBJECTS FOR EVERYDAY</small>
+                    <b>Less, but<br>better.</b>
+
+                    <span class="shop-discover">
+                      Discover the collection
+                      <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </span>
+                  </div>
+
+                  <div class="product-shape">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
+              <span class="preview-label">02 / E-COMMERCE</span>
+            </div>
+
+            <div class="project-content">
+              <div class="project-meta">
+                <span>WEB DESIGN & DEVELOPMENT</span>
+                <span>2026</span>
+              </div>
+
+              <h3>Forma — Minimal Store</h3>
+
+              <p>
+                A modern storefront concept focused on a clean layout,
+                clear product presentation, and responsive design.
+              </p>
+
+              <div class="tag-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+
+              <a class="project-link" href="https://github.com/MidhunSreekkuttan" target="_blank"
+                rel="noopener noreferrer">
+                View on GitHub
+                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-panel">
+        <div class="contact-decoration">
+          <i data-lucide="sparkles" aria-hidden="true"></i>
+        </div>
+
+        <p class="eyebrow">HAVE A PROJECT IN MIND?</p>
+
+        <h2>
+          Let's make something<br>
+          <span class="gradient-text">meaningful together.</span>
+        </h2>
+
+        <p>
+          I'm open to discussing development projects, creative ideas,
+          and opportunities to learn, collaborate, and build useful products.
+        </p>
+
+        <!-- Replace this placeholder with your actual email address -->
+        <a class="button button-primary email-button" href="mailto:your-email@example.com">
+          <i data-lucide="mail" aria-hidden="true"></i>
+          your-email@example.com
+          <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+        </a>
+
+        <div class="contact-socials">
+          <a href="https://github.com/MidhunSreekkuttan" target="_blank" rel="noopener noreferrer"
+            aria-label="GitHub profile">
+            <i data-lucide="github" aria-hidden="true"></i>
+            GitHub
+          </a>
+
+          <a href="https://linkedin.com/in/midhun-sreekkuttan" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn profile">
+            <i data-lucide="linkedin" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#home" aria-label="Back to top">
+        <span class="brand-mark">M</span>
+        <span>Midhun<span class="accent">.</span></span>
+      </a>
+
+      <p>Designed & built with <i data-lucide="heart" class="footer-heart" aria-hidden="true"></i> and care.</p>
+
+      <p>
+        © <span id="year">2026</span> Midhun M
+      </p>
+    </div>
+  </footer>
+
+  <!-- Portfolio JavaScript (includes Lucide icons initialization & mobile menu) -->
+  <script src="script.js"></script>
+</body>
+
+</html>
