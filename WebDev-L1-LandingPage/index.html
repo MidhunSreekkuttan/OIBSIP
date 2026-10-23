@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Flowspace helps teams plan projects, manage tasks, and work better together." />
+    <title>Flowspace — Work Better Together</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="container nav-content" aria-label="Main navigation">
+            <a href="#home" class="logo" aria-label="Flowspace home">
+                <span class="logo-icon" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+                Flowspace
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+            </ul>
+
+            <a href="#get-started" class="button button-primary nav-cta">
+                Get Started <i data-lucide="arrow-up-right" class="inline-icon"></i>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="announcement">
+                        <span>NEW</span>
+                        Your team's new favorite workspace
+                    </div>
+
+                    <h1>
+                        Great work happens<br />
+                        when teams <span>flow together.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Bring your projects, tasks, and people together in one
+                        beautiful workspace. Less busywork, more meaningful progress.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#get-started" class="button button-primary">
+                            Start for free <i data-lucide="arrow-right" class="inline-icon"></i>
+                        </a>
+                        <a href="#features" class="button button-outline">
+                            <i data-lucide="layout-grid" class="inline-icon"></i> Explore features
+                        </a>
+                    </div>
+
+                    <p class="hero-note">
+                        <i data-lucide="check-circle" class="inline-icon"></i> Simple to use · Built for teams · Made
+                        for better work
+                    </p>
+                </div>
+
+                <!-- Static dashboard illustration -->
+                <div class="dashboard" aria-label="Example project dashboard">
+                    <div class="dashboard-bar">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="dashboard-body">
+                        <aside class="dashboard-sidebar">
+                            <p class="sidebar-label">Workspace</p>
+                            <div class="sidebar-item active"><i data-lucide="layout-dashboard" class="inline-icon"></i>
+                                Overview</div>
+                            <div class="sidebar-item"><i data-lucide="check-square" class="inline-icon"></i> My tasks
+                            </div>
+                            <div class="sidebar-item"><i data-lucide="calendar-days" class="inline-icon"></i> Calendar
+                            </div>
+                            <div class="sidebar-item"><i data-lucide="users" class="inline-icon"></i> Team</div>
+                        </aside>
+
+                        <div class="dashboard-main">
+                            <h3 class="dashboard-title">Product launch <i data-lucide="rocket" class="inline-icon"></i>
+                            </h3>
+                            <p class="dashboard-subtitle">
+                                Here's what's happening with your team today.
+                            </p>
+
+                            <div class="task-grid">
+                                <div class="task-column">
+                                    <h4>TO DO · 2</h4>
+                                    <div class="task">
+                                        Research competitors
+                                        <span class="task-tag">Research</span>
+                                    </div>
+                                    <div class="task">Write project brief</div>
+                                </div>
+
+                                <div class="task-column">
+                                    <h4>IN PROGRESS · 2</h4>
+                                    <div class="task">
+                                        Design landing page
+                                        <span class="task-tag">Design</span>
+                                    </div>
+                                    <div class="task">Review user flows</div>
+                                </div>
+
+                                <div class="task-column">
+                                    <h4>COMPLETED · 1</h4>
+                                    <div class="task">
+                                        Setup workspace
+                                        <span class="task-tag green"><i data-lucide="check" class="inline-icon"></i>
+                                            Done</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section features" id="features">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Everything in one place</span>
+                    <h2>Tools that make teamwork feel effortless.</h2>
+                    <p>
+                        Everything your team needs to stay organized, work together,
+                        and turn ambitious ideas into real results.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true"><i data-lucide="clipboard-list"></i></div>
+                        <h3>Project management</h3>
+                        <p>
+                            Organize projects, set milestones, and see every task
+                            clearly from start to finish.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true"><i data-lucide="users"></i></div>
+                        <h3>Team collaboration</h3>
+                        <p>
+                            Bring everyone onto the same page with shared workspaces
+                            and clear responsibilities.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true"><i data-lucide="zap"></i></div>
+                        <h3>Smart task tracking</h3>
+                        <p>
+                            Assign work, track progress, and understand what needs
+                            attention without the guesswork.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section about" id="about">
+            <div class="container about-grid">
+                <div class="about-content">
+                    <span class="eyebrow">A better way to work</span>
+                    <h2>Give your team clarity, not more complexity.</h2>
+                    <p>
+                        Great teamwork shouldn't mean endless messages,
+                        scattered documents, or wondering who is doing what.
+                        Flowspace keeps the important things together.
+                    </p>
+
+                    <ul class="benefit-list">
+                        <li>
+                            <span class="check"><i data-lucide="check"></i></span>
+                            One organized home for all your projects.
+                        </li>
+                        <li>
+                            <span class="check"><i data-lucide="check"></i></span>
+                            Clear ownership for every task and deadline.
+                        </li>
+                        <li>
+                            <span class="check"><i data-lucide="check"></i></span>
+                            A shared view of progress for the entire team.
+                        </li>
+                    </ul>
+
+                    <a href="#get-started" class="button button-primary">
+                        Find your flow <i data-lucide="arrow-right" class="inline-icon"></i>
+                    </a>
+                </div>
+
+                <div class="about-visual">
+                    <span class="eyebrow">Your work, at a glance</span>
+
+                    <div class="stat">
+                        <span class="stat-number">01</span>
+                        <span class="stat-label">
+                            Create one shared space for your team.
+                        </span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="stat-number">02</span>
+                        <span class="stat-label">
+                            Turn big goals into manageable tasks.
+                        </span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="stat-number">03</span>
+                        <span class="stat-label">
+                            Move forward together, one task at a time.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Kind words</span>
+                    <h2>Teams deserve a better workflow.</h2>
+                    <p>
+                        Here's what a couple of fictional team members might say
+                        about a simpler way to work.
+                    </p>
+                </div>
+
+                <div class="testimonial-grid">
+                    <article class="testimonial-card">
+                        <div class="stars" aria-label="5 out of 5 stars">
+                            <i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                        </div>
+                        <p class="quote">
+                            "Having all our tasks in one place makes it much easier
+                            to understand our priorities. We spend more time building
+                            and less time chasing updates."
+                        </p>
+                        <div class="person">
+                            <div class="avatar" aria-hidden="true">AR</div>
+                            <div>
+                                <h3>Alex Rivera</h3>
+                                <p>Product Designer · Sample testimonial</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="stars" aria-label="5 out of 5 stars">
+                            <i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                        </div>
+                        <p class="quote">
+                            "It's easier to delegate tasks and see what's happening
+                            across the team. Everyone knows what they own and
+                            what comes next."
+                        </p>
+                        <div class="person">
+                            <div class="avatar" aria-hidden="true">JM</div>
+                            <div>
+                                <h3>Jordan Miller</h3>
+                                <p>Team Lead · Sample testimonial</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final call to action -->
+        <section class="cta" id="get-started">
+            <div class="container cta-content">
+                <h2>Ready to find your team's flow?</h2>
+                <p>
+                    Start organizing your work, connecting your people,
+                    and making room for your next great idea.
+                </p>
+                <a href="mailto:hello@example.com" class="button">
+                    Let's get started <i data-lucide="arrow-right" class="inline-icon"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <span class="logo-icon" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+                        Flowspace
+                    </a>
+                    <p class="footer-description">
+                        A simpler, more thoughtful way for teams to work together.
+                        Make space for great work.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:hello@example.com">Email us</a></li>
+                        <li><a href="https://github.com/MidhunSreekkuttan">GitHub</a></li>
+                        <li><a href="https://linkedin.com/in/midhun-sreekkuttan">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Flowspace. All rights reserved.</p>
+                <p>Designed with care for better teamwork.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
