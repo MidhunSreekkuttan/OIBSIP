@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="calculator-wrapper">
+    <div class="calculator" id="calculator" role="region" aria-label="Calculator">
+      <!-- Calculator Header -->
+      <div class="calc-header">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <span class="brand-title">CALC 2.0</span>
+        </div>
+        <span class="theme-badge">DEG</span>
+      </div>
+
+      <!-- Calculator Display Screen -->
+      <div class="display-container" aria-live="polite">
+        <div class="history-display" id="history-display" aria-label="Calculation history">&nbsp;</div>
+        <div class="current-display" id="current-display" aria-label="Current input and result">0</div>
+      </div>
+
+      <!-- Calculator Button Grid -->
+      <div class="button-grid" id="button-grid">
+        <!-- Row 1 -->
+        <button type="button" class="btn btn-action" data-action="clear" aria-label="Clear All">AC</button>
+        <button type="button" class="btn btn-action" data-action="delete" aria-label="Backspace / Delete">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+            <line x1="18" y1="9" x2="12" y2="15"></line>
+            <line x1="12" y1="9" x2="18" y2="15"></line>
+          </svg>
+        </button>
+        <button type="button" class="btn btn-action" data-action="percent" aria-label="Percentage">%</button>
+        <button type="button" class="btn btn-operator" data-operator="÷" aria-label="Division">÷</button>
+
+        <!-- Row 2 -->
+        <button type="button" class="btn btn-number" data-number="7">7</button>
+        <button type="button" class="btn btn-number" data-number="8">8</button>
+        <button type="button" class="btn btn-number" data-number="9">9</button>
+        <button type="button" class="btn btn-operator" data-operator="×" aria-label="Multiplication">×</button>
+
+        <!-- Row 3 -->
+        <button type="button" class="btn btn-number" data-number="4">4</button>
+        <button type="button" class="btn btn-number" data-number="5">5</button>
+        <button type="button" class="btn btn-number" data-number="6">6</button>
+        <button type="button" class="btn btn-operator" data-operator="−" aria-label="Subtraction">−</button>
+
+        <!-- Row 4 -->
+        <button type="button" class="btn btn-number" data-number="1">1</button>
+        <button type="button" class="btn btn-number" data-number="2">2</button>
+        <button type="button" class="btn btn-number" data-number="3">3</button>
+        <button type="button" class="btn btn-operator" data-operator="+" aria-label="Addition">+</button>
+
+        <!-- Row 5 -->
+        <button type="button" class="btn btn-number" data-action="negate" aria-label="Toggle Sign">±</button>
+        <button type="button" class="btn btn-number" data-number="0">0</button>
+        <button type="button" class="btn btn-number" data-decimal="." aria-label="Decimal point">.</button>
+        <button type="button" class="btn btn-equals" data-action="equals" aria-label="Equals">=</button>
+      </div>
+
+      <!-- Quick Hint Footer -->
+      <div class="calc-footer">
+        <span>Keyboard Supported</span>
+        <span class="shortcut-tip">Enter = &nbsp;|&nbsp; Esc = AC</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
