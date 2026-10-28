@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThermoShift | Interactive Temperature Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-container">
+    <div class="converter-card" role="region" aria-label="Temperature Converter">
+      <!-- Header -->
+      <header class="card-header">
+        <div class="brand-badge">
+          <span class="icon" aria-hidden="true">🌡️</span>
+          <span>Web Dev Internship Task 01</span>
+        </div>
+        <h1 class="card-title">Temperature Converter</h1>
+        <p class="card-subtitle">Real-time conversion between Celsius, Fahrenheit, and Kelvin with absolute zero validation.</p>
+      </header>
+
+      <!-- Form Section -->
+      <form id="tempForm" class="converter-form" novalidate>
+        <!-- Input Value -->
+        <div class="form-group">
+          <label for="tempInput" class="form-label">
+            <span>Enter Temperature Value</span>
+            <span class="helper-tag" id="inputHelper">e.g. 25 or -10.5</span>
+          </label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="tempInput" 
+              name="tempInput" 
+              class="text-input" 
+              placeholder="Enter number (e.g., 36.5)" 
+              autocomplete="off"
+              aria-describedby="errorMessage inputHelper"
+              required
+            >
+            <span class="input-unit-symbol" id="currentUnitSymbol">°C</span>
+          </div>
+          <!-- Error & Warning Message Area -->
+          <div id="errorMessage" class="error-message" role="alert" aria-live="polite"></div>
+        </div>
+
+        <!-- Unit Selectors Row -->
+        <div class="unit-selectors-row">
+          <!-- From Unit -->
+          <div class="form-group unit-box">
+            <label for="fromUnit" class="form-label">From Unit</label>
+            <div class="select-wrapper">
+              <select id="fromUnit" class="unit-select" aria-label="Select source temperature unit">
+                <option value="celsius" selected>Celsius (°C)</option>
+                <option value="fahrenheit">Fahrenheit (°F)</option>
+                <option value="kelvin">Kelvin (K)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Quick Swap Button -->
+          <div class="swap-wrapper">
+            <button type="button" id="swapUnitsBtn" class="btn-swap" title="Swap input and target units" aria-label="Swap units">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- To Unit (Target or All) -->
+          <div class="form-group unit-box">
+            <label for="toUnit" class="form-label">Target Unit</label>
+            <div class="select-wrapper">
+              <select id="toUnit" class="unit-select" aria-label="Select target temperature unit">
+                <option value="all" selected>All Units (Simultaneous)</option>
+                <option value="celsius">Celsius (°C)</option>
+                <option value="fahrenheit">Fahrenheit (°F)</option>
+                <option value="kelvin">Kelvin (K)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-row">
+          <button type="submit" id="convertBtn" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 14a8 8 0 0 1 14.14-5.14L21 11"/>
+              <path d="M21 3v8h-8"/>
+              <path d="M20 10a8 8 0 0 1-14.14 5.14L3 13"/>
+              <path d="M3 21v-8h8"/>
+            </svg>
+            <span>Convert</span>
+          </button>
+          <button type="button" id="resetBtn" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            <span>Reset</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Result Showcase Area -->
+      <section id="resultSection" class="result-section" aria-live="polite">
+        <div class="result-header">
+          <h2 class="result-title">Conversion Results</h2>
+          <span class="precision-badge" id="thermalStateBadge">Normal</span>
+        </div>
+
+        <!-- Primary Highlight Card -->
+        <div class="primary-result-card" id="primaryResultCard">
+          <div class="primary-result-label" id="primaryResultLabel">Target Conversion</div>
+          <div class="primary-result-val-row">
+            <span class="primary-result-value" id="primaryResultValue">--</span>
+            <button type="button" id="copyResultBtn" class="btn-copy" title="Copy result to clipboard" aria-label="Copy conversion result">
+              <svg class="copy-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="copy-tooltip" id="copyTooltip">Copy</span>
+            </button>
+          </div>
+          <div class="primary-formula" id="primaryFormulaText">Formula: Select input and press Convert</div>
+        </div>
+
+        <!-- Simultaneous Output Grid (Shows all units simultaneously) -->
+        <div class="all-units-grid" id="allUnitsGrid">
+          <!-- Celsius Card -->
+          <article class="unit-card" id="cardCelsius">
+            <div class="card-top">
+              <span class="unit-name">Celsius</span>
+              <span class="unit-code">°C</span>
+            </div>
+            <div class="card-value" id="valCelsius">--</div>
+            <div class="card-footer" id="descCelsius">Water freezes at 0°C, boils at 100°C</div>
+          </article>
+
+          <!-- Fahrenheit Card -->
+          <article class="unit-card" id="cardFahrenheit">
+            <div class="card-top">
+              <span class="unit-name">Fahrenheit</span>
+              <span class="unit-code">°F</span>
+            </div>
+            <div class="card-value" id="valFahrenheit">--</div>
+            <div class="card-footer" id="descFahrenheit">Water freezes at 32°F, boils at 212°F</div>
+          </article>
+
+          <!-- Kelvin Card -->
+          <article class="unit-card" id="cardKelvin">
+            <div class="card-top">
+              <span class="unit-name">Kelvin</span>
+              <span class="unit-code">K</span>
+            </div>
+            <div class="card-value" id="valKelvin">--</div>
+            <div class="card-footer" id="descKelvin">Absolute thermodynamic scale (0K = min)</div>
+          </article>
+        </div>
+
+        <!-- Quick Physical Benchmarks reference -->
+        <div class="benchmarks-box">
+          <div class="benchmarks-title">Quick Physical Benchmarks:</div>
+          <div class="benchmarks-pills">
+            <button type="button" class="preset-pill" data-val="-273.15" data-unit="celsius">Absolute Zero (-273.15°C)</button>
+            <button type="button" class="preset-pill" data-val="0" data-unit="celsius">Freezing Point (0°C)</button>
+            <button type="button" class="preset-pill" data-val="37" data-unit="celsius">Human Body (37°C)</button>
+            <button type="button" class="preset-pill" data-val="100" data-unit="celsius">Boiling Point (100°C)</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
