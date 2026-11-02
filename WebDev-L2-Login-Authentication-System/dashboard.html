@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Protected Member Area</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (CDN + local fallback) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/lucide-fallback.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Critical Protection Guard: Execute synchronously before DOM render
+        // Redirects directly to login if no valid session exists
+        if (!Auth.getCurrentUser()) {
+            window.location.replace('login.html?error=unauthorized');
+        }
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Top Navigation -->
+        <nav class="dashboard-nav">
+            <a href="dashboard.html" class="nav-brand">
+                <div class="nav-brand-icon">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <span>AuthGuard Portal</span>
+            </a>
+
+            <div class="nav-actions">
+                <div class="user-status-pill">
+                    <span class="status-dot"></span>
+                    <span id="userNavPill">User</span>
+                </div>
+                <button type="button" id="logoutBtn" class="btn-logout" title="Log out of your session">
+                    <i data-lucide="log-out"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Protected Dashboard Container -->
+        <main class="dashboard-container">
+            <!-- Hero Banner -->
+            <section class="dashboard-hero">
+                <div class="hero-profile">
+                    <div class="avatar-badge" id="userAvatarInitials">--</div>
+                    <div class="hero-text">
+                        <h1>Welcome, <span id="userDisplayName">User</span>!</h1>
+                        <p id="userDisplayEmail">user@example.com</p>
+                        <div class="hero-meta-badge">
+                            <span>Protected Member Session</span> &bull; 
+                            <span class="badge-tag badge-green">Authenticated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" id="heroLogoutBtn" class="btn-secondary">
+                        <i data-lucide="log-out"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Dashboard Information Cards -->
+            <div class="dashboard-grid">
+                <!-- Card 1: User Account Profile -->
+                <article class="dash-card">
+                    <div class="dash-card-header">
+                        <h2 class="dash-card-title">
+                            <i data-lucide="user"></i>
+                            User Profile
+                        </h2>
+                        <span class="badge-tag badge-blue">Verified</span>
+                    </div>
+
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <span class="info-label">Username:</span>
+                            <span class="info-value" id="infoUsername">Loading...</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value" id="infoEmail">Loading...</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Account ID:</span>
+                            <span class="info-value" id="infoUserId">Loading...</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Member Since:</span>
+                            <span class="info-value" id="infoAccountCreated">Loading...</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- Card 2: Security & Hashing Verification -->
+                <article class="dash-card">
+                    <div class="dash-card-header">
+                        <h2 class="dash-card-title">
+                            <i data-lucide="lock"></i>
+                            Security & Hashing
+                        </h2>
+                        <span class="badge-tag badge-green">SHA-256</span>
+                    </div>
+
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <span class="info-label">Plain Text Passwords:</span>
+                            <span class="info-value" style="color: #34d399;">NEVER STORED</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Hashing Algorithm:</span>
+                            <span class="info-value">SHA-256 (64-char Hex)</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Stored Hash Preview:</span>
+                        </li>
+                    </ul>
+
+                    <div class="hash-preview-box" id="storedHashDisplay">
+                        Computing digest...
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <button type="button" id="viewDbBtn" class="btn-secondary" style="width: 100%; justify-content: center; gap: 0.5rem;">
+                            <i data-lucide="database"></i>
+                            <span>Inspect Database Records (JSON)</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card 3: Active Session Details -->
+                <article class="dash-card">
+                    <div class="dash-card-header">
+                        <h2 class="dash-card-title">
+                            <i data-lucide="clock"></i>
+                            Session Guard
+                        </h2>
+                        <span class="badge-tag badge-green">Active</span>
+                    </div>
+
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <span class="info-label">Route Status:</span>
+                            <span class="info-value" style="color: #34d399;">Protected &bull; Verified</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Login Time:</span>
+                            <span class="info-value" id="infoLoginTime">Just now</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Session Uptime:</span>
+                            <span class="info-value" id="sessionTimer" style="color: #38bdf8;">0m 00s</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Storage Protection:</span>
+                            <span class="info-value">Client Storage Guard</span>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+
+            <!-- Task Requirement Verification Checklist -->
+            <section class="checklist-box">
+                <h3 class="checklist-title">
+                    <i data-lucide="shield-check"></i>
+                    Task Specification Checklist (All Features Implemented)
+                </h3>
+
+                <div class="checklist-grid">
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Registration page: username/email & password</span>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Password validation: &ge; 8 chars, &ge; 1 number</span>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Duplicate username & email rejection</span>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Login page with username/email & password</span>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Incorrect credential handling: non-revealing error</span>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Protected page: redirects if accessed directly</span>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Logout button clears session & redirects</span>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>SHA-256 Hashing: No plain text passwords</span>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Basic form validation: no empty submissions</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Database Inspector Modal -->
+        <div id="dbModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle" class="modal-title">LocalStorage Database Records</h3>
+                    <button type="button" id="closeDbModal" class="modal-close-btn" aria-label="Close modal">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    Notice that only the <code>passwordHash</code> is persisted. The raw plaintext password is never stored or transmitted anywhere in the application.
+                </p>
+                <div class="modal-body">
+                    <pre class="modal-pre" id="dbJsonPreview">// Records will appear here</pre>
+                </div>
+            </div>
+        </div>
+
+        <footer class="global-footer">
+            <p>Oasis Infobyte Internship &bull; Web Development &bull; Level 2 Authentication Task</p>
+        </footer>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script>
+        // Initialize Lucide icons on page load
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

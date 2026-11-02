@@ -1,10 +1,3 @@
-/**
- * Tribute Page JavaScript
- * Dr. A. P. J. Abdul Kalam
- * Features: Dark/Light Mode, Mobile Navigation, Interactive Quotes Carousel,
- * Timeline Filtering, Scroll Spy, Back-to-top button, and Offline Fallback.
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------------------
   // 1. Dark / Light Theme Toggle with LocalStorage

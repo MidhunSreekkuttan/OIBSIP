@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Secure Authentication System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (CDN + local fallback) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/lucide-fallback.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Immediate redirect if session already exists
+        Auth.redirectIfAuthenticated('dashboard.html');
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <main class="auth-container">
+            <div class="auth-card">
+                <header class="auth-header">
+                    <div class="auth-logo-badge">
+                        <i data-lucide="user-plus"></i>
+                    </div>
+                    <h1 class="auth-title">Create Account</h1>
+                    <p class="auth-subtitle">Register for a new account with hashed security</p>
+                </header>
+
+                <!-- Dynamic Alert Banner -->
+                <div id="alertBox" class="alert-box" role="alert" aria-live="polite">
+                    <span id="alertIconWrapper">
+                        <i data-lucide="alert-circle" class="alert-icon"></i>
+                    </span>
+                    <span id="alertMessage" class="alert-message"></span>
+                </div>
+
+                <form id="registerForm" novalidate>
+                    <!-- Username Field -->
+                    <div class="form-group">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="user" class="input-icon"></i>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                class="form-input no-toggle-icon" 
+                                placeholder="Choose a unique username" 
+                                autocomplete="username"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="mail" class="input-icon"></i>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-input no-toggle-icon" 
+                                placeholder="name@example.com" 
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="lock" class="input-icon"></i>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="form-input" 
+                                placeholder="Create a strong password" 
+                                autocomplete="new-password"
+                                required
+                            >
+                            <button type="button" id="togglePassword" class="password-toggle-btn" aria-label="Show password" title="Toggle password visibility">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="shield-check" class="input-icon"></i>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                name="confirmPassword" 
+                                class="form-input" 
+                                placeholder="Re-enter your password" 
+                                autocomplete="new-password"
+                                required
+                            >
+                            <button type="button" id="toggleConfirmPassword" class="password-toggle-btn" aria-label="Show password" title="Toggle password visibility">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Real-Time Password Validation Requirements -->
+                    <div class="password-requirements" aria-live="polite">
+                        <div class="requirements-title">Password Requirements:</div>
+                        
+                        <div class="requirement-item" id="reqMinLength">
+                            <span class="req-icon-box">
+                                <i data-lucide="circle" class="req-icon"></i>
+                            </span>
+                            <span>Minimum 8 characters</span>
+                        </div>
+
+                        <div class="requirement-item" id="reqHasNumber">
+                            <span class="req-icon-box">
+                                <i data-lucide="circle" class="req-icon"></i>
+                            </span>
+                            <span>At least 1 number (0-9)</span>
+                        </div>
+
+                        <div class="requirement-item" id="reqPasswordsMatch">
+                            <span class="req-icon-box">
+                                <i data-lucide="circle" class="req-icon"></i>
+                            </span>
+                            <span>Passwords match</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="btn-primary">
+                        <span id="btnText">Register</span>
+                    </button>
+                </form>
+
+                <!-- Footer Navigation -->
+                <footer class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Sign in</a></p>
+                </footer>
+            </div>
+        </main>
+
+        <footer class="global-footer">
+            <p>Oasis Infobyte Internship &bull; Web Development &bull; Level 2 Authentication Task</p>
+        </footer>
+    </div>
+
+    <script src="js/register.js"></script>
+    <script>
+        // Initialize Lucide icons on page load
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

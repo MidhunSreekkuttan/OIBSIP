@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Secure Authentication System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (CDN + local fallback) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/lucide-fallback.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Immediate redirect if session already exists
+        Auth.redirectIfAuthenticated('dashboard.html');
+    </script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <main class="auth-container">
+            <div class="auth-card">
+                <header class="auth-header">
+                    <div class="auth-logo-badge">
+                        <i data-lucide="lock"></i>
+                    </div>
+                    <h1 class="auth-title">Welcome Back</h1>
+                    <p class="auth-subtitle">Sign in to access your protected dashboard</p>
+                </header>
+
+                <!-- Dynamic Alert Banner -->
+                <div id="alertBox" class="alert-box" role="alert" aria-live="polite">
+                    <span id="alertIconWrapper">
+                        <i data-lucide="alert-circle" class="alert-icon"></i>
+                    </span>
+                    <span id="alertMessage" class="alert-message"></span>
+                </div>
+
+                <form id="loginForm" novalidate>
+                    <!-- Username or Email Field -->
+                    <div class="form-group">
+                        <label for="identifier" class="form-label">Username or Email</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="user" class="input-icon"></i>
+                            <input 
+                                type="text" 
+                                id="identifier" 
+                                name="identifier" 
+                                class="form-input" 
+                                placeholder="Enter username or email" 
+                                autocomplete="username"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Password Field with Show/Hide Toggle -->
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="lock" class="input-icon"></i>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="form-input" 
+                                placeholder="Enter your password" 
+                                autocomplete="current-password"
+                                required
+                            >
+                            <button type="button" id="togglePassword" class="password-toggle-btn" aria-label="Show password" title="Toggle password visibility">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Option -->
+                    <div class="form-helper-row">
+                        <label class="checkbox-label" for="rememberMe">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="btn-primary">
+                        <span id="btnText">Login</span>
+                    </button>
+                </form>
+
+                <!-- Demo Reviewer Helper Box -->
+                <div class="demo-helper-box">
+                    <div class="demo-helper-header">
+                        <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i> Reviewer Quick Demo
+                        </span>
+                    </div>
+                    <div class="demo-helper-body">
+                        <div><strong>User:</strong> alex_intern | <strong>Pass:</strong> Password123</div>
+                    </div>
+                    <button type="button" id="demoFillBtn" class="demo-fill-btn">Auto-Fill Demo Credentials</button>
+                </div>
+
+                <!-- Footer Navigation -->
+                <footer class="auth-footer">
+                    <p>Don't have an account yet? <a href="register.html">Register here</a></p>
+                </footer>
+            </div>
+        </main>
+
+        <footer class="global-footer">
+            <p>Oasis Infobyte Internship &bull; Web Development &bull; Level 2 Authentication Task</p>
+        </footer>
+    </div>
+
+    <script src="js/login.js"></script>
+    <script>
+        // Initialize Lucide icons on page load
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

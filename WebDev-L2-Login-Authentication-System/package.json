@@ -1,0 +1,20 @@
+{
+  "name": "login-authentication-system",
+  "version": "1.0.0",
+  "description": "Secure Client-Side Authentication System with LocalStorage and SHA-256 Hashing (Oasis Infobyte Web Development Level 2 Task)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node -e \"console.log('Testing auth module...'); require('./js/auth.js'); console.log('Auth module syntax OK');\""
+  },
+  "keywords": [
+    "authentication",
+    "sha-256",
+    "localstorage",
+    "oasis-infobyte",
+    "protected-routes"
+  ],
+  "author": "Internship Submitter",
+  "license": "MIT"
+}
+

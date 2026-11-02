@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication System | Oasis Infobyte</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/auth.js"></script>
+    <script>
+        // Automatic routing based on session state
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = Auth.getCurrentUser();
+            if (user) {
+                window.location.replace('dashboard.html');
+            } else {
+                window.location.replace('login.html');
+            }
+        });
+    </script>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+    <noscript>
+        <div class="auth-card" style="text-align: center;">
+            <h2>JavaScript Required</h2>
+            <p style="margin: 1rem 0; color: var(--text-secondary);">
+                Please enable JavaScript to access the authentication system.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="login.html" class="btn-primary" style="text-decoration: none; padding: 0.5rem 1rem;">Login</a>
+                <a href="register.html" class="btn-secondary" style="text-decoration: none; padding: 0.5rem 1rem;">Register</a>
+            </div>
+        </div>
+    </noscript>
+    <div style="text-align: center; color: var(--text-secondary);">
+        <p>Redirecting to Authentication Portal...</p>
+    </div>
+</body>
+</html>
+
