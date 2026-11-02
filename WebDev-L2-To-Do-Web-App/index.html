@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive To-Do Web Application with Pending and Completed task lists, inline editing, priority filters, timestamps, Lucide icons, and localStorage persistence." />
+  <title>TaskMaster — Modern To-Do Web App</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts for sleek typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="app-brand">
+          <div class="logo-icon" aria-hidden="true">
+            <i data-lucide="list-todo"></i>
+          </div>
+          <div>
+            <h1 class="app-title">TaskMaster</h1>
+            <p class="current-date" id="currentDateDisplay">Today</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button id="themeToggleBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-main">
+      <!-- Task Creation Card -->
+      <section class="task-input-section" aria-label="Create new task">
+        <form id="taskForm" class="task-form">
+          <div class="input-row">
+            <div class="input-wrapper">
+              <i data-lucide="plus-circle" class="input-icon" aria-hidden="true"></i>
+              <input
+                type="text"
+                id="taskInput"
+                class="task-input"
+                placeholder="What needs to be done? (e.g. Complete WebDev Project)"
+                autocomplete="off"
+                maxlength="250"
+                required
+              />
+              <button type="button" id="clearInputBtn" class="clear-input-btn hidden" title="Clear text" aria-label="Clear input text">
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+
+            <!-- Priority Select -->
+            <div class="priority-wrapper">
+              <label for="prioritySelect" class="sr-only">Priority</label>
+              <select id="prioritySelect" class="priority-select" title="Set task priority">
+                <option value="medium" selected>⚡ Medium</option>
+                <option value="high">🔥 High</option>
+                <option value="low">🌱 Low</option>
+              </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="addTaskBtn" class="btn btn-primary add-btn">
+              <i data-lucide="plus"></i>
+              <span>Add Task</span>
+            </button>
+          </div>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+      </section>
+
+      <!-- Search & Filter Controls -->
+      <section class="controls-section">
+        <div class="search-box">
+          <i data-lucide="search" class="search-icon" aria-hidden="true"></i>
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search tasks by name..."
+            aria-label="Search tasks"
+          />
+        </div>
+        <div class="filter-group">
+          <label for="filterPriority" class="sr-only">Filter by priority</label>
+          <select id="filterPriority" class="filter-select">
+            <option value="all">All Priorities</option>
+            <option value="high">High Priority</option>
+            <option value="medium">Medium Priority</option>
+            <option value="low">Low Priority</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Task Lists Grid (Pending & Completed) -->
+      <div class="task-grid">
+        <!-- Pending Tasks Column -->
+        <section class="task-card pending-card" aria-labelledby="pendingHeading">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="status-indicator pending-indicator" aria-hidden="true"></div>
+              <h2 id="pendingHeading" class="card-title">Pending Tasks</h2>
+            </div>
+            <span class="count-badge pending-badge" id="pendingCountBadge" aria-live="polite">0 pending</span>
+          </div>
+
+          <div class="card-body">
+            <ul class="task-list" id="pendingTaskList" role="list" aria-label="List of pending tasks">
+              <!-- Rendered via JS -->
+            </ul>
+            <div class="empty-state" id="pendingEmptyState">
+              <div class="empty-icon-wrap pending-empty-icon">
+                <i data-lucide="clipboard-list"></i>
+              </div>
+              <h3 class="empty-title">All caught up!</h3>
+              <p class="empty-desc">You have no pending tasks. Add a new task above to get started.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Completed Tasks Column -->
+        <section class="task-card completed-card" aria-labelledby="completedHeading">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="status-indicator completed-indicator" aria-hidden="true"></div>
+              <h2 id="completedHeading" class="card-title">Completed Tasks</h2>
+            </div>
+            <div class="header-right-actions">
+              <span class="count-badge completed-badge" id="completedCountBadge" aria-live="polite">0 completed</span>
+              <button type="button" id="clearCompletedBtn" class="btn btn-subtle btn-xs" title="Clear all completed tasks">
+                <i data-lucide="trash-2"></i>
+                <span>Clear All</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <ul class="task-list" id="completedTaskList" role="list" aria-label="List of completed tasks">
+              <!-- Rendered via JS -->
+            </ul>
+            <div class="empty-state" id="completedEmptyState">
+              <div class="empty-icon-wrap completed-empty-icon">
+                <i data-lucide="trophy"></i>
+              </div>
+              <h3 class="empty-title">No completed tasks yet</h3>
+              <p class="empty-desc">Mark tasks as complete to see them organized neatly right here.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>
+        <strong>TaskMaster</strong> &bull; Level 2 Web Development Internship Project &bull; Powered by Lucide Icons
+      </p>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
